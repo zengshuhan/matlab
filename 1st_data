@@ -1,0 +1,27 @@
+%一张图多组数据处理方式
+%data = [0.18, 0.27, 0.14;0.37,0.13,0.21];%数据设置
+RGB=cbrewer2('seq', 'spectral', 8, 'linear');   % 生成PuBu的配色方案的RGB矩阵
+data = [24.5984, 12.49974, 4.57043; 22.98534, 30.94946, 23.01125; 51.88459, 30.91339, 9.14086; 24.35633, 17.0691, 9.16623; 42.10063, 53.95794, 22.9565; 28.22781, 23.68655, 9.16589; 28.89925, 18.41365, 4.57043; 28.23594, 17.75243, 9.16589];
+X=2:3:8; %每个柱子中点坐标
+
+b = bar(X, data,0.8); % 绘制柱状图函数，,'Color', 
+for a = 1:8
+set(b(a),'FaceColor',RGB(a,:)) % 颜色调节
+hold on;
+end
+%set(b(2),'FaceColor',[1,0.5,0]) % 颜色调节
+
+set(gca,'XTickLabel',{'encryption','trapdoor','test'},'FontSize',12,'FontName','Times New Roman' ); %X轴标记设置
+
+legend("boneh","rhee","xu","huang","zeng","wu","qin","our scheme",'FontSize',9,'FontName','Times New Roman');
+
+set(gca,'YTickLabel',num2str(get(gca,'YTick')','%.2f')) % Y坐标轴显示小数点后两位
+
+%set(gca,'yColor',[0.25,.41,0.88],'FontWeight','bold');
+
+set(get(gca, 'Xlabel'),'Fontname','Times New Roman','FontWeight','bold','Fontsize',18); % X轴标签字体，字号设置
+
+set(get(gca, 'Ylabel'),'Fontname','Times New Roman','FontWeight','bold','Fontsize',16); % Y轴标签字体，字号设置
+
+
+
