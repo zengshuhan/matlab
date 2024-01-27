@@ -1,0 +1,64 @@
+%4组柱状图
+%cbrewer2需要安装
+RGB=cbrewer2('seq', 'spectral', 8, 'linear');
+figure;
+hold all;
+
+% plot1--pk
+subplot(2,2,1)
+data_pk = [640 640 320 320 320 1280 320 320];
+x=1:8;
+s0=bar(x,data_pk,1);
+s0.FaceColor = 'flat';
+for i=1:8    
+    s0.CData(i,:) = RGB(i,:);
+end
+
+set(gca, 'XTicklabel', {'Boneh','Rhee','Wu','Xu','Huang','Zeng','Qin','our scheme'});
+title('pk')
+% xlabel('schemes'),
+ylabel('communication cost(bit)')
+
+% plot2--sk
+subplot(2,2,2)
+data_sk = [160 160 160 160 160 480 160 160 ];
+x=1:1:8;
+s1=bar(x,data_sk,1);
+s1.FaceColor = 'flat';
+for i=1:8    
+    s1.CData(i,:) = RGB(i,:);
+end
+set(gca, 'XTicklabel', {'Boneh','Rhee','Wu','Xu','Huang','Zeng','Qin','our scheme'});
+title('sk')
+% xlabel('schemes'),
+ylabel('communication cost(bit)')
+
+% plot3--ciphertext
+subplot(2,2,3)
+data_ciphertext = [480 480 832 640 640 1280 480 1152];
+x=1:1:8;
+s1=bar(x,data_ciphertext,1);
+s1.FaceColor = 'flat';
+for i=1:8    
+    s1.CData(i,:) = RGB(i,:);
+end
+set(gca, 'XTicklabel', {'Boneh','Rhee','Wu','Xu','Huang','Zeng','Qin','our scheme'});
+title('ciphertext')
+% xlabel('schemes'),
+ylabel('communication cost(bit)')
+
+% plot4--trapdoor
+subplot(2,2,4)
+data_trapdoor = [320 640 640 960 512 1600 320 640];
+x=1:1:8;
+s1=bar(x,data_trapdoor,1);
+s1.FaceColor = 'flat';
+for i=1:8    
+    s1.CData(i,:) = RGB(i,:);
+end
+set(gca, 'XTicklabel', {'Boneh','Rhee','Wu','Xu','Huang','Zeng','Qin','our scheme'});
+title('trapdoor')
+% xlabel('schemes'),
+ylabel('communication cost(bit)')
+
+hold off;
